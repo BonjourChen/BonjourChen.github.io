@@ -89,7 +89,7 @@
 <meta name="description" content="Stay hungry.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Bonjour!">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/MISC/index.html">
 <meta property="og:site_name" content="Bonjour!">
 <meta property="og:description" content="Stay hungry.">
 <meta name="twitter:card" content="summary">
@@ -115,10 +115,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/MISC/"/>
 
 
-  <title> Bonjour! </title>
+  <title> 标签: MISC | Bonjour! </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -139,9 +139,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -228,309 +226,45 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        MISC
+        <small>标签</small>
+      </h2>
+    </div>
+
     
       
 
-  
-  
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
+      <h1 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
+            <a class="post-title-link" href="/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/" itemprop="url">
               
-                
-                <a class="post-title-link" href="/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/" itemprop="url">
-                  南京邮电大学网络攻防训练平台题解——MISC
-                </a>
+                <span itemprop="name">南京邮电大学网络攻防训练平台题解——MISC</span>
               
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-12T19:31:04+08:00" content="2016-10-12">
-              2016-10-12
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          easy wireshark查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：nctf{wireshark_is_easy}
-wireshark 2分析http流的时候很容易发现有个secret.txt，打开之后可以看到内容：the password for zip
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/#more" rel="contents">
-              阅读全文 &raquo;
             </a>
-          </div>
         
-      
-    </div>
+      </h1>
 
-    <div>
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-10-12T19:31:04+08:00"
+              content="2016-10-12" >
+          10-12
+        </time>
+      </div>
 
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </header>
   </article>
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/12/Flask-uwsgi-Nginx部署应用/" itemprop="url">
-                  Flask+uwsgi+Nginx部署应用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-12T13:13:31+08:00" content="2016-10-12">
-              2016-10-12
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>之前用Flask写了个网站，然后就想部署到云主机上。搜索了一番，决定采用的部署方案是：</p>
-<ul>
-<li>Web 服务器采用uWSGI</li>
-<li>用Supervisor引用uwsgi 作为常规启动服务</li>
-<li>基于Nginx作反向代理</li>
-</ul>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/12/Flask-uwsgi-Nginx部署应用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/10/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T15:53:00+08:00" content="2016-10-10">
-              2016-10-10
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/10/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
+  </div>
 
   
 
