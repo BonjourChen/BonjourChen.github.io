@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-12T12:28:55.740Z</updated>
+  <updated>2016-10-12T13:16:13.876Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/10/12/%E5%8D%97%E4%BA%AC%E9%82%AE%E7%94%B5%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E8%AE%AD%E7%BB%83%E5%B9%B3%E5%8F%B0%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E9%9A%90%E5%86%99%E6%9C%AF/"/>
     <id>http://yoursite.com/2016/10/12/南京邮电大学网络攻防训练平台题解——隐写术/</id>
     <published>2016-10-12T11:38:49.000Z</published>
-    <updated>2016-10-12T12:28:55.740Z</updated>
+    <updated>2016-10-12T13:16:13.876Z</updated>
     
     <content type="html"><![CDATA[<h3 id="女神"><a href="#女神" class="headerlink" title="女神"></a>女神</h3><p>用UE打开拉到最后可看到flag：<code>nctf{pic_yin_xie_shu}</code></p>
 <a id="more"></a>
@@ -35,6 +35,8 @@
     
     </summary>
     
+      <category term="CTF" scheme="http://yoursite.com/categories/CTF/"/>
+    
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
@@ -47,7 +49,7 @@
     <link href="http://yoursite.com/2016/10/12/%E5%8D%97%E4%BA%AC%E9%82%AE%E7%94%B5%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E8%AE%AD%E7%BB%83%E5%B9%B3%E5%8F%B0%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94MISC/"/>
     <id>http://yoursite.com/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/</id>
     <published>2016-10-12T11:31:04.000Z</published>
-    <updated>2016-10-12T12:28:58.200Z</updated>
+    <updated>2016-10-12T13:15:55.649Z</updated>
     
     <content type="html"><![CDATA[<h3 id="easy-wireshark"><a href="#easy-wireshark" class="headerlink" title="easy wireshark"></a>easy wireshark</h3><p>查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：<code>nctf{wireshark_is_easy}</code><br><a id="more"></a><br><img src="http://oexmgtl4i.bkt.clouddn.com/github.io/01.png" alt="Alt text"></p>
 <h3 id="wireshark-2"><a href="#wireshark-2" class="headerlink" title="wireshark 2"></a>wireshark 2</h3><p>分析http流的时候很容易发现有个secret.txt，打开之后可以看到内容：the password for zip file is : ZipYourMouth<br>那么接下来就是找zip了。然后可以发现上面有个flag.zip，尝试提取出来。发现提取出来是坏的，用winrar无法修复。<br>折腾了一阵然后就找writeup了。原来flag真的不在这里，坑。<br>在pcap文件中直接查找zip文件头Hex：504B0304，可以发现在1139行还有一个zip。里面有个flag.txt。<br>提取出来之后，用winrar修复，根据上面找到的压缩包密码就可以解压了。打开就是flag：Flag-qscet5234diQ。根据题目要求转换成小写就O了。最后提交flag：<code>flag-qscet5234diq</code></p>
@@ -58,6 +60,8 @@
       &lt;h3 id=&quot;easy-wireshark&quot;&gt;&lt;a href=&quot;#easy-wireshark&quot; class=&quot;headerlink&quot; title=&quot;easy wireshark&quot;&gt;&lt;/a&gt;easy wireshark&lt;/h3&gt;&lt;p&gt;查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：&lt;code&gt;nctf{wireshark_is_easy}&lt;/code&gt;&lt;br&gt;
     
     </summary>
+    
+      <category term="CTF" scheme="http://yoursite.com/categories/CTF/"/>
     
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
@@ -71,7 +75,7 @@
     <link href="http://yoursite.com/2016/10/12/Flask-uwsgi-Nginx%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8/"/>
     <id>http://yoursite.com/2016/10/12/Flask-uwsgi-Nginx部署应用/</id>
     <published>2016-10-12T05:13:31.000Z</published>
-    <updated>2016-10-12T07:01:37.216Z</updated>
+    <updated>2016-10-12T13:15:45.123Z</updated>
     
     <content type="html"><![CDATA[<p>之前用Flask写了个网站，然后就想部署到云主机上。搜索了一番，决定采用的部署方案是：</p>
 <ul>
@@ -107,6 +111,8 @@
 &lt;/ul&gt;
     
     </summary>
+    
+      <category term="Flask" scheme="http://yoursite.com/categories/Flask/"/>
     
     
       <category term="Flask" scheme="http://yoursite.com/tags/Flask/"/>
