@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-12T11:50:28.870Z</updated>
+  <updated>2016-10-12T11:52:39.226Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,11 @@
     <link href="http://yoursite.com/2016/10/12/%E5%8D%97%E4%BA%AC%E9%82%AE%E7%94%B5%E5%A4%A7%E5%AD%A6%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E8%AE%AD%E7%BB%83%E5%B9%B3%E5%8F%B0%E9%A2%98%E8%A7%A3%E2%80%94%E2%80%94%E9%9A%90%E5%86%99%E6%9C%AF/"/>
     <id>http://yoursite.com/2016/10/12/南京邮电大学网络攻防训练平台题解——隐写术/</id>
     <published>2016-10-12T11:38:49.000Z</published>
-    <updated>2016-10-12T11:50:28.870Z</updated>
+    <updated>2016-10-12T11:52:39.226Z</updated>
     
-    <content type="html"><![CDATA[<p>记录下隐写术部分的简单Writeup。<br><a id="more"></a></p>
+    <content type="html"><![CDATA[<p>记录下隐写术部分的简单Writeup。</p>
 <h3 id="女神"><a href="#女神" class="headerlink" title="女神"></a>女神</h3><p>用UE打开拉到最后可看到flag：<code>nctf{pic_yin_xie_shu}</code></p>
+<a id="more"></a>
 <h3 id="图种"><a href="#图种" class="headerlink" title="图种"></a>图种</h3><p>用binwalk可以看出里面还藏着一个zip，里面还有一张gif。打开gif，按照题目要求，最后一句话的拼音首字母。<br>提交flag：<code>nctf{dssdcmlw}</code></p>
 <h3 id="丘比龙De女神"><a href="#丘比龙De女神" class="headerlink" title="丘比龙De女神"></a>丘比龙De女神</h3><p>提示里面藏了一张图片。先用binwalk分析，没什么结果。用winhex打开，之后发现文件末尾有个nvshen.jpg。还有个文件zip压缩文件的尾部504B0506。<br>然后再搜索一下nvshen.jpg，上面也出现了一次。<br><img src="http://oexmgtl4i.bkt.clouddn.com/github.io/02.png" alt="Alt text"><br>然后还看到了上面红框那段，zip文件头的一部分。从这部分到文件尾部，抠出来，补上504B0304，然后将14000100改成14000000（去掉zip的伪加密），重命名为zip后缀。打开之后，解压密码为上面看到的love。就可以解压出图片了。然后放在kali里面计算图片md5值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root@kali:~/Documents# md5sum nvshen.jpg</div><div class="line">a6caad3aaafa11b6d5ed583bef4d8a54  nvshen.jpg</div></pre></td></tr></table></figure></p>
 <p>提交flag：<code>flag{a6caad3aaafa11b6d5ed583bef4d8a54}</code></p>
@@ -31,7 +32,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;记录下隐写术部分的简单Writeup。&lt;br&gt;
+      &lt;p&gt;记录下隐写术部分的简单Writeup。&lt;/p&gt;
+&lt;h3 id=&quot;女神&quot;&gt;&lt;a href=&quot;#女神&quot; class=&quot;headerlink&quot; title=&quot;女神&quot;&gt;&lt;/a&gt;女神&lt;/h3&gt;&lt;p&gt;用UE打开拉到最后可看到flag：&lt;code&gt;nctf{pic_yin_xie_shu}&lt;/code&gt;&lt;/p&gt;
     
     </summary>
     
