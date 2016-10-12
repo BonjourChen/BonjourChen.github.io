@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Flask," />
 
 
 
@@ -84,15 +84,34 @@
 
 
 
-<meta name="description" content="Stay hungry.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bonjour!">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="之前用Flask写了个网站，然后就想部署到云主机上。搜索了一番，决定采用的部署方案是：
+
+Web 服务器采用uWSGI
+用Supervisor引用uwsgi 作为常规启动服务
+基于Nginx作反向代理
+
+#安装Python环境，Flask在Vultr上申请了个云主机，系统采用Ubuntu 15.10。上来先安装python环境，安装pip、virtualenv。新建一个虚拟环境venv并激活：12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flask+uwsgi+Nginx部署应用">
+<meta property="og:url" content="http://yoursite.com/2016/10/12/Flask-uwsgi-Nginx部署应用/index.html">
 <meta property="og:site_name" content="Bonjour!">
-<meta property="og:description" content="Stay hungry.">
+<meta property="og:description" content="之前用Flask写了个网站，然后就想部署到云主机上。搜索了一番，决定采用的部署方案是：
+
+Web 服务器采用uWSGI
+用Supervisor引用uwsgi 作为常规启动服务
+基于Nginx作反向代理
+
+#安装Python环境，Flask在Vultr上申请了个云主机，系统采用Ubuntu 15.10。上来先安装python环境，安装pip、virtualenv。新建一个虚拟环境venv并激活：12">
+<meta property="og:updated_time" content="2016-10-12T05:15:57.479Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bonjour!">
-<meta name="twitter:description" content="Stay hungry.">
+<meta name="twitter:title" content="Flask+uwsgi+Nginx部署应用">
+<meta name="twitter:description" content="之前用Flask写了个网站，然后就想部署到云主机上。搜索了一番，决定采用的部署方案是：
+
+Web 服务器采用uWSGI
+用Supervisor引用uwsgi 作为常规启动服务
+基于Nginx作反向代理
+
+#安装Python环境，Flask在Vultr上申请了个云主机，系统采用Ubuntu 15.10。上来先安装python环境，安装pip、virtualenv。新建一个虚拟环境venv并激活：12">
 
 
 
@@ -113,10 +132,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/12/Flask-uwsgi-Nginx部署应用/"/>
 
 
-  <title> Bonjour! </title>
+  <title> Flask+uwsgi+Nginx部署应用 | Bonjour! </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,9 +156,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -226,9 +243,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -248,10 +265,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/10/12/Flask-uwsgi-Nginx部署应用/" itemprop="url">
-                  Flask+uwsgi+Nginx部署应用
-                </a>
+                Flask+uwsgi+Nginx部署应用
               
             
           </h1>
@@ -291,9 +305,7 @@
       
 
       
-        
-          
-            <p>之前用Flask写了个网站，然后就想部署到云主机上。搜索了一番，决定采用的部署方案是：</p>
+        <p>之前用Flask写了个网站，然后就想部署到云主机上。搜索了一番，决定采用的部署方案是：</p>
 <ul>
 <li>Web 服务器采用uWSGI</li>
 <li>用Supervisor引用uwsgi 作为常规启动服务</li>
@@ -315,138 +327,59 @@
 <p>重启Nginx服务：<code>sudo service nginx restart</code><br>这时候打开浏览器，输入你的主机IP，就可以看到你的项目了。</p>
 <p>参考：<a href="http://www.cnblogs.com/Ray-liang/p/4173923.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">http://www.cnblogs.com/Ray-liang/p/4173923.html</a></p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/10/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-10T15:53:00+08:00" content="2016-10-10">
-              2016-10-10
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/Flask/" rel="tag">#Flask</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/10/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -454,6 +387,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -473,8 +410,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -537,6 +483,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -633,6 +590,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
 
   
 
