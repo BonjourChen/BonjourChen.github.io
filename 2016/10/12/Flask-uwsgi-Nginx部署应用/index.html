@@ -90,9 +90,7 @@
 
 Web 服务器采用uWSGI
 用Supervisor引用uwsgi 作为常规启动服务
-基于Nginx作反向代理
-
-安装Python环境，Flask在Vultr上申请了个云主机，系统采用Ubuntu 15.10。上来先安装python环境，安装pip、virtualenv。新建一个虚拟环境venv并激活：12w">
+基于Nginx作反向代理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flask+uwsgi+Nginx部署应用">
 <meta property="og:url" content="http://yoursite.com/2016/10/12/Flask-uwsgi-Nginx部署应用/index.html">
@@ -101,19 +99,15 @@ Web 服务器采用uWSGI
 
 Web 服务器采用uWSGI
 用Supervisor引用uwsgi 作为常规启动服务
-基于Nginx作反向代理
-
-安装Python环境，Flask在Vultr上申请了个云主机，系统采用Ubuntu 15.10。上来先安装python环境，安装pip、virtualenv。新建一个虚拟环境venv并激活：12w">
-<meta property="og:updated_time" content="2016-10-12T06:14:10.147Z">
+基于Nginx作反向代理">
+<meta property="og:updated_time" content="2016-10-12T07:01:37.216Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask+uwsgi+Nginx部署应用">
 <meta name="twitter:description" content="之前用Flask写了个网站，然后就想部署到云主机上。搜索了一番，决定采用的部署方案是：
 
 Web 服务器采用uWSGI
 用Supervisor引用uwsgi 作为常规启动服务
-基于Nginx作反向代理
-
-安装Python环境，Flask在Vultr上申请了个云主机，系统采用Ubuntu 15.10。上来先安装python环境，安装pip、virtualenv。新建一个虚拟环境venv并激活：12w">
+基于Nginx作反向代理">
 
 
 
@@ -313,6 +307,7 @@ Web 服务器采用uWSGI
 <li>用Supervisor引用uwsgi 作为常规启动服务</li>
 <li>基于Nginx作反向代理</li>
 </ul>
+<a id="more"></a>
 <h2 id="安装Python环境，Flask"><a href="#安装Python环境，Flask" class="headerlink" title="安装Python环境，Flask"></a>安装Python环境，Flask</h2><p>在Vultr上申请了个云主机，系统采用Ubuntu 15.10。上来先安装python环境，安装pip、virtualenv。新建一个虚拟环境venv并激活：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wb@vultr:~/myBlog$ source venv/bin/activate</div><div class="line">(venv) wb@vultr:~/myBlog$</div></pre></td></tr></table></figure></p>
 <p>接下来安装Flask和Flask的依赖，这个根据项目来定。<br>我项目的启动文件manage.py如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line"><span class="keyword">if</span> os.path.exists(<span class="string">'.env'</span>):</div><div class="line">	print(<span class="string">'Importing environment from .env...'</span>)</div><div class="line">	<span class="keyword">for</span> line <span class="keyword">in</span> open(<span class="string">'.env'</span>):</div><div class="line">		var = line.strip().split(<span class="string">'='</span>)</div><div class="line">		<span class="keyword">if</span> len(var) == <span class="number">2</span>:</div><div class="line">			os.environ[var[<span class="number">0</span>]] = var[<span class="number">1</span>]</div><div class="line"></div><div class="line"><span class="keyword">from</span> app <span class="keyword">import</span> create_app, db</div><div class="line"><span class="keyword">from</span> app.models <span class="keyword">import</span> User, Post</div><div class="line"><span class="keyword">from</span> flask.ext.script <span class="keyword">import</span> Manager,Shell</div><div class="line"></div><div class="line">app = create_app(os.getenv(<span class="string">'FLASK_CONFIG'</span>) <span class="keyword">or</span> <span class="string">'default'</span>)</div><div class="line">manager = Manager(app)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_shell_context</span><span class="params">()</span>:</span></div><div class="line">	<span class="keyword">return</span> dict(app=app,db=db,User=User)</div><div class="line"></div><div class="line">manager.add_command(<span class="string">"shell"</span>,Shell(make_context=make_shell_context))</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">	manager.run()</div></pre></td></tr></table></figure></p>
 <p>所以运行Flask的方式如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py runserver --host 0.0.0.0</div></pre></td></tr></table></figure></p>
