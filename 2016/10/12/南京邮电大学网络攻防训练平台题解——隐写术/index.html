@@ -86,26 +86,17 @@
 
 
 
-<meta name="description" content="记录下隐写术部分的简单Writeup。
-女神用UE打开拉到最后可看到flag：nctf{pic_yin_xie_shu}
-图种用binwalk可以看出里面还藏着一个zip，里面还有一张gif。打开gif，按照题目要求，最后一句话的拼音首字母。提交flag：nctf{dssdcmlw}
-丘比龙De女神提示里面藏了一张图片。先用binwalk分析，没什么结果。用winhex打开，之后发现文件末尾有个n">
+<meta name="description" content="记录下隐写术部分的简单Writeup。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="南京邮电大学网络攻防训练平台题解——隐写术">
 <meta property="og:url" content="http://yoursite.com/2016/10/12/南京邮电大学网络攻防训练平台题解——隐写术/index.html">
 <meta property="og:site_name" content="Bonjour!">
-<meta property="og:description" content="记录下隐写术部分的简单Writeup。
-女神用UE打开拉到最后可看到flag：nctf{pic_yin_xie_shu}
-图种用binwalk可以看出里面还藏着一个zip，里面还有一张gif。打开gif，按照题目要求，最后一句话的拼音首字母。提交flag：nctf{dssdcmlw}
-丘比龙De女神提示里面藏了一张图片。先用binwalk分析，没什么结果。用winhex打开，之后发现文件末尾有个n">
+<meta property="og:description" content="记录下隐写术部分的简单Writeup。">
 <meta property="og:image" content="http://oexmgtl4i.bkt.clouddn.com/github.io/02.png">
-<meta property="og:updated_time" content="2016-10-12T11:44:31.455Z">
+<meta property="og:updated_time" content="2016-10-12T11:50:28.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="南京邮电大学网络攻防训练平台题解——隐写术">
-<meta name="twitter:description" content="记录下隐写术部分的简单Writeup。
-女神用UE打开拉到最后可看到flag：nctf{pic_yin_xie_shu}
-图种用binwalk可以看出里面还藏着一个zip，里面还有一张gif。打开gif，按照题目要求，最后一句话的拼音首字母。提交flag：nctf{dssdcmlw}
-丘比龙De女神提示里面藏了一张图片。先用binwalk分析，没什么结果。用winhex打开，之后发现文件末尾有个n">
+<meta name="twitter:description" content="记录下隐写术部分的简单Writeup。">
 <meta name="twitter:image" content="http://oexmgtl4i.bkt.clouddn.com/github.io/02.png">
 
 
@@ -300,7 +291,7 @@
       
 
       
-        <p>记录下隐写术部分的简单Writeup。</p>
+        <p>记录下隐写术部分的简单Writeup。<br><a id="more"></a></p>
 <h3 id="女神"><a href="#女神" class="headerlink" title="女神"></a>女神</h3><p>用UE打开拉到最后可看到flag：<code>nctf{pic_yin_xie_shu}</code></p>
 <h3 id="图种"><a href="#图种" class="headerlink" title="图种"></a>图种</h3><p>用binwalk可以看出里面还藏着一个zip，里面还有一张gif。打开gif，按照题目要求，最后一句话的拼音首字母。<br>提交flag：<code>nctf{dssdcmlw}</code></p>
 <h3 id="丘比龙De女神"><a href="#丘比龙De女神" class="headerlink" title="丘比龙De女神"></a>丘比龙De女神</h3><p>提示里面藏了一张图片。先用binwalk分析，没什么结果。用winhex打开，之后发现文件末尾有个nvshen.jpg。还有个文件zip压缩文件的尾部504B0506。<br>然后再搜索一下nvshen.jpg，上面也出现了一次。<br><img src="http://oexmgtl4i.bkt.clouddn.com/github.io/02.png" alt="Alt text"><br>然后还看到了上面红框那段，zip文件头的一部分。从这部分到文件尾部，抠出来，补上504B0304，然后将14000100改成14000000（去掉zip的伪加密），重命名为zip后缀。打开之后，解压密码为上面看到的love。就可以解压出图片了。然后放在kali里面计算图片md5值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">root@kali:~/Documents# md5sum nvshen.jpg</div><div class="line">a6caad3aaafa11b6d5ed583bef4d8a54  nvshen.jpg</div></pre></td></tr></table></figure></p>
