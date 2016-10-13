@@ -314,7 +314,7 @@
       
         
           <h3 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h3><p>网页源代码：<code>nctf{flag_admiaanaaaaaaaaaaa}</code></p>
-<h3 id="md5-collision"><a href="#md5-collision" class="headerlink" title="md5 collision"></a>md5 collision</h3><p>QNKCDZO的md5值为0e830400451993494058024219903391,所以显然根据在php中md5函数的判断规则，只要字符串的md5值开始也是0e则相等。<br><code>http://115.28.150.176/md5/index.php?a=s878926199a</code><br>flag：<code>nctf{md5_collision_is_easy}</code></p>
+<h3 id="md5-collision"><a href="#md5-collision" class="headerlink" title="md5 collision"></a>md5 collision</h3><p>QNKCDZO的md5值为0e830400451993494058024219903391,所以显然根据在php中md5函数的判断规则，只要字符串的md5值开始也是0e则相等。<code>http://115.28.150.176/md5/index.php?a=s878926199a</code><br>flag：<code>nctf{md5_collision_is_easy}</code></p>
 <h3 id="签到2"><a href="#签到2" class="headerlink" title="签到2"></a>签到2</h3><p>用firebug查看到输入框中有maxlength=”10”，改大了之后再输入zhimakaimen即可。<br>flag：<code>nctf{follow_me_to_exploit}</code></p>
 <h3 id="这题不是WEB"><a href="#这题不是WEB" class="headerlink" title="这题不是WEB"></a>这题不是WEB</h3><p>发现用bp截取不到数据包，用御剑也扫不出东西，于是把gif下载下来，用UE打开，发现最后藏了flag：<code>nctf{photo_can_also_hid3_msg}</code><br>
           <div class="post-more-link text-center">
