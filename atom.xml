@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-19T05:14:27.826Z</updated>
+  <updated>2016-10-19T05:18:09.792Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yoursite.com/2016/10/19/CTF%E9%A2%98%E8%A7%A320161019/"/>
     <id>http://yoursite.com/2016/10/19/CTF题解20161019/</id>
     <published>2016-10-19T03:32:33.000Z</published>
-    <updated>2016-10-19T05:14:27.826Z</updated>
+    <updated>2016-10-19T05:18:09.792Z</updated>
     
-    <content type="html"><![CDATA[<p>题目材料地址：<a href="https://github.com/BonjourChen/CTF/tree/master/misc-20161019" target="_blank" rel="external">enter link description here</a></p>
+    <content type="html"><![CDATA[<p>题目材料地址：<a href="https://github.com/BonjourChen/CTF/tree/master/misc-20161019" target="_blank" rel="external">题目材料</a></p>
 <h3 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h3><p>Tips:答案是与一部动漫名字有关的小写英文字母。<br>flag格式：NSFOCUS{xxx}<br>先用binwalk看下，顺便把里面的压缩包分离出来：<br><img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161019/110620330.png" alt="mark"><br>得到key.zip。发现压缩包里面有密码。<br>办法一：直接爆破压缩包。<br>办法二：用UE或者Winhex打开，可以看到开头是FFD8，是个jpg来的，将后缀修改为.jpg，打开之后发现是张龙珠图片倒过来，所以flag为龙珠英文反过来写。<br>Flag：<code>NSFOCUS{llabnogard}</code></p>
 <h3 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h3><p>Tips:听说到处都是提示。<br>flag格式：NSFOCUS{xxx}<br>压缩包有密码，文件名提示是生日。生成一个生日的字典进行爆破，可以获得密码是19990908。解压，里面是张图片。用UE打开图片，可以看到flag：<code>NSFOCUS{You_4re_5o_Clever}</code><br> <img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161019/113634923.png" alt="mark"><br><a id="more"></a></p>
 <h3 id="0x03"><a href="#0x03" class="headerlink" title="0x03"></a>0x03</h3><p>这个动图为啥打不开？？？？？<br>flag格式：NSFOCUS{xxx}<br>UE打开文件，发现缺少了GIF头，补上头部合成GIF89a之后可以打开gif图片。然后用Stegsolve查看每一帧，拼起来得到：key is：dGhpcyBpcyBhIGdpZg==，将这串字符进行Base64解码得到：this is a gif，所以flag为：<code>NSFOCUS{ this is a gif }</code></p>
@@ -46,7 +46,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;题目材料地址：&lt;a href=&quot;https://github.com/BonjourChen/CTF/tree/master/misc-20161019&quot;&gt;enter link description here&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;题目材料地址：&lt;a href=&quot;https://github.com/BonjourChen/CTF/tree/master/misc-20161019&quot;&gt;题目材料&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&quot;0x01&quot;&gt;&lt;a href=&quot;#0x01&quot; class=&quot;headerlink&quot; title=&quot;0x01&quot;&gt;&lt;/a&gt;0x01&lt;/h3&gt;&lt;p&gt;Tips:答案是与一部动漫名字有关的小写英文字母。&lt;br&gt;flag格式：NSFOCUS{xxx}&lt;br&gt;先用binwalk看下，顺便把里面的压缩包分离出来：&lt;br&gt;&lt;img src=&quot;http://of9x0sxb3.bkt.clouddn.com/blog/20161019/110620330.png&quot; alt=&quot;mark&quot;&gt;&lt;br&gt;得到key.zip。发现压缩包里面有密码。&lt;br&gt;办法一：直接爆破压缩包。&lt;br&gt;办法二：用UE或者Winhex打开，可以看到开头是FFD8，是个jpg来的，将后缀修改为.jpg，打开之后发现是张龙珠图片倒过来，所以flag为龙珠英文反过来写。&lt;br&gt;Flag：&lt;code&gt;NSFOCUS{llabnogard}&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&quot;0x02&quot;&gt;&lt;a href=&quot;#0x02&quot; class=&quot;headerlink&quot; title=&quot;0x02&quot;&gt;&lt;/a&gt;0x02&lt;/h3&gt;&lt;p&gt;Tips:听说到处都是提示。&lt;br&gt;flag格式：NSFOCUS{xxx}&lt;br&gt;压缩包有密码，文件名提示是生日。生成一个生日的字典进行爆破，可以获得密码是19990908。解压，里面是张图片。用UE打开图片，可以看到flag：&lt;code&gt;NSFOCUS{You_4re_5o_Clever}&lt;/code&gt;&lt;br&gt; &lt;img src=&quot;http://of9x0sxb3.bkt.clouddn.com/blog/20161019/113634923.png&quot; alt=&quot;mark&quot;&gt;&lt;br&gt;
     
