@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CTF,MISC," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -86,18 +86,16 @@
 
 
 
-<meta name="description" content="easy wireshark查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：nctf{wireshark_is_easy}">
+<meta name="description" content="###删除root目录下的所有pdf文件（包括子目录）1234567891011121314151617181920#!/user/bin/python# -*- coding: utf-8 -*-import osdef searchFiles(path):	listOfFile = []	for dirpath, dirnames, filenames in os.walk(path):		f">
 <meta property="og:type" content="article">
-<meta property="og:title" content="南京邮电大学网络攻防训练平台题解——MISC">
-<meta property="og:url" content="http://yoursite.com/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/index.html">
+<meta property="og:title" content="[python练手]删除文件夹下的pdf文件">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/python练手-删除文件夹下的pdf文件/index.html">
 <meta property="og:site_name" content="Bonjour!">
-<meta property="og:description" content="easy wireshark查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：nctf{wireshark_is_easy}">
-<meta property="og:image" content="http://oexmgtl4i.bkt.clouddn.com/github.io/01.png">
-<meta property="og:updated_time" content="2016-10-12T15:14:32.843Z">
+<meta property="og:description" content="###删除root目录下的所有pdf文件（包括子目录）1234567891011121314151617181920#!/user/bin/python# -*- coding: utf-8 -*-import osdef searchFiles(path):	listOfFile = []	for dirpath, dirnames, filenames in os.walk(path):		f">
+<meta property="og:updated_time" content="2016-11-08T02:51:54.993Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="南京邮电大学网络攻防训练平台题解——MISC">
-<meta name="twitter:description" content="easy wireshark查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：nctf{wireshark_is_easy}">
-<meta name="twitter:image" content="http://oexmgtl4i.bkt.clouddn.com/github.io/01.png">
+<meta name="twitter:title" content="[python练手]删除文件夹下的pdf文件">
+<meta name="twitter:description" content="###删除root目录下的所有pdf文件（包括子目录）1234567891011121314151617181920#!/user/bin/python# -*- coding: utf-8 -*-import osdef searchFiles(path):	listOfFile = []	for dirpath, dirnames, filenames in os.walk(path):		f">
 
 
 
@@ -118,10 +116,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/08/python练手-删除文件夹下的pdf文件/"/>
 
 
-  <title> 南京邮电大学网络攻防训练平台题解——MISC | Bonjour! </title>
+  <title> [python练手]删除文件夹下的pdf文件 | Bonjour! </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +249,7 @@
             
             
               
-                南京邮电大学网络攻防训练平台题解——MISC
+                [python练手]删除文件夹下的pdf文件
               
             
           </h1>
@@ -263,8 +261,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-12T19:31:04+08:00" content="2016-10-12">
-              2016-10-12
+            <time itemprop="dateCreated" datetime="2016-11-08T10:46:38+08:00" content="2016-11-08">
+              2016-11-08
             </time>
           </span>
 
@@ -277,8 +275,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -315,8 +313,8 @@
       
 
       
-        <h3 id="easy-wireshark"><a href="#easy-wireshark" class="headerlink" title="easy wireshark"></a>easy wireshark</h3><p>查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：<code>nctf{wireshark_is_easy}</code><br><a id="more"></a><br><img src="http://oexmgtl4i.bkt.clouddn.com/github.io/01.png" alt="Alt text"></p>
-<h3 id="wireshark-2"><a href="#wireshark-2" class="headerlink" title="wireshark 2"></a>wireshark 2</h3><p>分析http流的时候很容易发现有个secret.txt，打开之后可以看到内容：the password for zip file is : ZipYourMouth<br>那么接下来就是找zip了。然后可以发现上面有个flag.zip，尝试提取出来。发现提取出来是坏的，用winrar无法修复。<br>折腾了一阵然后就找writeup了。原来flag真的不在这里，坑。<br>在pcap文件中直接查找zip文件头Hex：504B0304，可以发现在1139行还有一个zip。里面有个flag.txt。<br>提取出来之后，用winrar修复，根据上面找到的压缩包密码就可以解压了。打开就是flag：Flag-qscet5234diQ。根据题目要求转换成小写就O了。最后提交flag：<code>flag-qscet5234diq</code></p>
+        <p>###删除root目录下的所有pdf文件（包括子目录）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#!/user/bin/python</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line">import os</div><div class="line"></div><div class="line">def searchFiles(path):</div><div class="line">	listOfFile = []</div><div class="line">	for dirpath, dirnames, filenames in os.walk(path):</div><div class="line">		for name in filenames:</div><div class="line">			if name.endswith(&apos;.pdf&apos;):</div><div class="line">				filename = os.path.join(dirpath, name)</div><div class="line">				listOfFile.append(filename)</div><div class="line">	return listOfFile</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">	path = &apos;/root&apos;</div><div class="line">	listOfFile = searchFiles(path)</div><div class="line">	print str(len(listOfFile)) + &quot; files to be deleted&quot;</div><div class="line">	for file in listOfFile:</div><div class="line">		os.remove(file)</div></pre></td></tr></table></figure></p>
+<p>###删除root目录下的所有pdf文件（不包括子目录）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#!/user/bin/python</div><div class="line"># -*- coding: utf-8 -*-</div><div class="line"></div><div class="line">import os</div><div class="line"></div><div class="line">def searchFiles(path):</div><div class="line">	listOfFile = []</div><div class="line">	for name in os.listdir(path):</div><div class="line">		filename = os.path.join(path,name)</div><div class="line">		if filename.endswith(&apos;.pdf&apos;):</div><div class="line">			listOfFile.append(filename)</div><div class="line">	return listOfFile</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">	path = &apos;/root&apos;</div><div class="line">	listOfFile = searchFiles(path)</div><div class="line">	print str(len(listOfFile)) + &quot; files to be deleted&quot;</div><div class="line">	for file in listOfFile:</div><div class="line">		os.remove(file)</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -339,9 +337,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CTF/" rel="tag">#CTF</a>
-          
-            <a href="/tags/MISC/" rel="tag">#MISC</a>
+            <a href="/tags/python/" rel="tag">#python</a>
           
         </div>
       
@@ -350,17 +346,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/12/Flask-uwsgi-Nginx部署应用/" rel="next" title="Flask+uwsgi+Nginx部署应用">
-                <i class="fa fa-chevron-left"></i> Flask+uwsgi+Nginx部署应用
+              <a href="/2016/10/19/CTF题解20161019/" rel="next" title="CTF题解20161019">
+                <i class="fa fa-chevron-left"></i> CTF题解20161019
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/12/南京邮电大学网络攻防训练平台题解——隐写术/" rel="prev" title="南京邮电大学网络攻防训练平台题解——隐写术">
-                南京邮电大学网络攻防训练平台题解——隐写术 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,7 +493,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#easy-wireshark"><span class="nav-number">1.</span> <span class="nav-text">easy wireshark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wireshark-2"><span class="nav-number">2.</span> <span class="nav-text">wireshark 2</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
