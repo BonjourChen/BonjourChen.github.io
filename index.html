@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/hexo/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/hexo/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/hexo/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -74,12 +74,12 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Bonjour!" type="application/atom+xml" />
+  <link rel="alternate" href="/hexo/atom.xml" title="Bonjour!" type="application/atom+xml" />
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/hexo/favicon.ico?v=5.0.2" />
 
 
 
@@ -149,7 +149,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/hexo/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Bonjour!</span>
       <span class="logo-line-after"><i></i></span>
@@ -174,7 +174,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/hexo/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -184,7 +184,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+          <a href="/hexo/categories" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -194,7 +194,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/hexo/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -204,7 +204,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/hexo/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -251,7 +251,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/19/CTF题解20161019/" itemprop="url">
+                <a class="post-title-link" href="/hexo/2016/10/19/CTF题解20161019/" itemprop="url">
                   CTF题解20161019
                 </a>
               
@@ -279,7 +279,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                  <a href="/hexo/categories/CTF/" itemprop="url" rel="index">
                     <span itemprop="name">CTF</span>
                   </a>
                 </span>
@@ -317,7 +317,7 @@
 <h3 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h3><p>Tips:答案是与一部动漫名字有关的小写英文字母。<br>flag格式：NSFOCUS{xxx}<br>先用binwalk看下，顺便把里面的压缩包分离出来：<br><img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161019/110620330.png" alt="mark"><br>得到key.zip。发现压缩包里面有密码。<br>办法一：直接爆破压缩包。<br>办法二：用UE或者Winhex打开，可以看到开头是FFD8，是个jpg来的，将后缀修改为.jpg，打开之后发现是张龙珠图片倒过来，所以flag为龙珠英文反过来写。<br>Flag：<code>NSFOCUS{llabnogard}</code></p>
 <h3 id="0x02"><a href="#0x02" class="headerlink" title="0x02"></a>0x02</h3><p>Tips:听说到处都是提示。<br>flag格式：NSFOCUS{xxx}<br>压缩包有密码，文件名提示是生日。生成一个生日的字典进行爆破，可以获得密码是19990908。解压，里面是张图片。用UE打开图片，可以看到flag：<code>NSFOCUS{You_4re_5o_Clever}</code><br> <img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161019/113634923.png" alt="mark"><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/19/CTF题解20161019/#more" rel="contents">
+            <a class="btn" href="/hexo/2016/10/19/CTF题解20161019/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -368,7 +368,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/13/南京邮电大学网络攻防训练平台题解——WEB/" itemprop="url">
+                <a class="post-title-link" href="/hexo/2016/10/13/南京邮电大学网络攻防训练平台题解——WEB/" itemprop="url">
                   南京邮电大学网络攻防训练平台题解——WEB
                 </a>
               
@@ -396,7 +396,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                  <a href="/hexo/categories/CTF/" itemprop="url" rel="index">
                     <span itemprop="name">CTF</span>
                   </a>
                 </span>
@@ -435,7 +435,7 @@
 <h3 id="签到2"><a href="#签到2" class="headerlink" title="签到2"></a>签到2</h3><p>用firebug查看到输入框中有maxlength=”10”，改大了之后再输入zhimakaimen即可。<br>flag：<code>nctf{follow_me_to_exploit}</code></p>
 <h3 id="这题不是WEB"><a href="#这题不是WEB" class="headerlink" title="这题不是WEB"></a>这题不是WEB</h3><p>发现用bp截取不到数据包，用御剑也扫不出东西，于是把gif下载下来，用UE打开，发现最后藏了flag：<code>nctf{photo_can_also_hid3_msg}</code><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/13/南京邮电大学网络攻防训练平台题解——WEB/#more" rel="contents">
+            <a class="btn" href="/hexo/2016/10/13/南京邮电大学网络攻防训练平台题解——WEB/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -486,7 +486,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/12/南京邮电大学网络攻防训练平台题解——密码学/" itemprop="url">
+                <a class="post-title-link" href="/hexo/2016/10/12/南京邮电大学网络攻防训练平台题解——密码学/" itemprop="url">
                   南京邮电大学网络攻防训练平台题解——密码学
                 </a>
               
@@ -514,7 +514,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                  <a href="/hexo/categories/CTF/" itemprop="url" rel="index">
                     <span itemprop="name">CTF</span>
                   </a>
                 </span>
@@ -551,7 +551,7 @@
           <h3 id="easy"><a href="#easy" class="headerlink" title="easy!"></a>easy!</h3><p>Base64解码：<code>nctf{this_is_base64_encode}</code></p>
 <h3 id="KeyBoard"><a href="#KeyBoard" class="headerlink" title="KeyBoard"></a>KeyBoard</h3><p>根据键盘的位置画图，可以看出是areuhack。（个人觉得a有点难看出来）<br>flag：<code>nctf{areuhack}</code><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/12/南京邮电大学网络攻防训练平台题解——密码学/#more" rel="contents">
+            <a class="btn" href="/hexo/2016/10/12/南京邮电大学网络攻防训练平台题解——密码学/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -602,7 +602,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/12/南京邮电大学网络攻防训练平台题解——隐写术/" itemprop="url">
+                <a class="post-title-link" href="/hexo/2016/10/12/南京邮电大学网络攻防训练平台题解——隐写术/" itemprop="url">
                   南京邮电大学网络攻防训练平台题解——隐写术
                 </a>
               
@@ -630,7 +630,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                  <a href="/hexo/categories/CTF/" itemprop="url" rel="index">
                     <span itemprop="name">CTF</span>
                   </a>
                 </span>
@@ -666,7 +666,7 @@
         
           <h3 id="女神"><a href="#女神" class="headerlink" title="女神"></a>女神</h3><p>用UE打开拉到最后可看到flag：<code>nctf{pic_yin_xie_shu}</code></p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/12/南京邮电大学网络攻防训练平台题解——隐写术/#more" rel="contents">
+            <a class="btn" href="/hexo/2016/10/12/南京邮电大学网络攻防训练平台题解——隐写术/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -717,7 +717,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/" itemprop="url">
+                <a class="post-title-link" href="/hexo/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/" itemprop="url">
                   南京邮电大学网络攻防训练平台题解——MISC
                 </a>
               
@@ -745,7 +745,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                  <a href="/hexo/categories/CTF/" itemprop="url" rel="index">
                     <span itemprop="name">CTF</span>
                   </a>
                 </span>
@@ -781,7 +781,7 @@
         
           <h3 id="easy-wireshark"><a href="#easy-wireshark" class="headerlink" title="easy wireshark"></a>easy wireshark</h3><p>查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：<code>nctf{wireshark_is_easy}</code><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/#more" rel="contents">
+            <a class="btn" href="/hexo/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -832,7 +832,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/12/Flask-uwsgi-Nginx部署应用/" itemprop="url">
+                <a class="post-title-link" href="/hexo/2016/10/12/Flask-uwsgi-Nginx部署应用/" itemprop="url">
                   Flask+uwsgi+Nginx部署应用
                 </a>
               
@@ -860,7 +860,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Flask/" itemprop="url" rel="index">
+                  <a href="/hexo/categories/Flask/" itemprop="url" rel="index">
                     <span itemprop="name">Flask</span>
                   </a>
                 </span>
@@ -901,7 +901,7 @@
 <li>基于Nginx作反向代理</li>
 </ul>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/12/Flask-uwsgi-Nginx部署应用/#more" rel="contents">
+            <a class="btn" href="/hexo/2016/10/12/Flask-uwsgi-Nginx部署应用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -952,7 +952,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/10/10/hello-world/" itemprop="url">
+                <a class="post-title-link" href="/hexo/2016/10/10/hello-world/" itemprop="url">
                   Hello World
                 </a>
               
@@ -1000,7 +1000,7 @@
           ...
 
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/10/hello-world/#more" rel="contents">
+            <a class="btn" href="/hexo/2016/10/10/hello-world/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1063,14 +1063,14 @@
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/uploads/avatar.jpg"
+               src="/hexo/uploads/avatar.jpg"
                alt="BonjourChen" />
           <p class="site-author-name" itemprop="name">BonjourChen</p>
           <p class="site-description motion-element" itemprop="description">Stay hungry.</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/archives">
+            <a href="/hexo/archives">
               <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
@@ -1078,7 +1078,7 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              <a href="/hexo/categories">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -1087,7 +1087,7 @@
 
           
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
+              <a href="/hexo/tags">
                 <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
@@ -1098,7 +1098,7 @@
 
         
           <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
+            <a href="/hexo/atom.xml" rel="alternate">
               <i class="fa fa-rss"></i>
               RSS
             </a>
@@ -1216,42 +1216,42 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/hexo/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/hexo/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/hexo/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/hexo/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/hexo/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/hexo/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/hexo/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/hexo/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/hexo/js/src/bootstrap.js?v=5.0.2"></script>
 
 
 

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Bonjour!</title>
   <subtitle>正在输入...</subtitle>
-  <link href="/atom.xml" rel="self"/>
+  <link href="/hexo/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
   <updated>2016-10-19T05:18:09.792Z</updated>
