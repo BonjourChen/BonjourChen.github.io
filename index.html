@@ -243,6 +243,126 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/13/Java-Web生成EAN13条形码/" itemprop="url">
+                  Java Web生成EAN13条形码
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-13T11:10:35+08:00" content="2016-11-13">
+              2016-11-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="EAN13编码原理"><a href="#EAN13编码原理" class="headerlink" title="EAN13编码原理"></a>EAN13编码原理</h4><p>具体详见<a href="http://blog.csdn.net/abcpanpeng/article/details/8130392">EAN13编码原理</a>，这里简要概述一下：<br>一个EAN-13条码被划分成了4个区域：1）数制2）厂商码3）商品码4）校验位。通常，第一个数制位被打印在条码的左边，第二个数制位被作为条码下方左手边的那组六位数的第一个字符打印，厂商码是条码下方左手边的后5位数，产品码是条码下方右手边的前五位数，校验位是条码下方右手边的最后一位。<br>以下是典型的EAN-13的条码：<br><img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161113/120007864.png" alt="mark"></p>
+<ul>
+<li>数制：数制是由2位组成的（有些时候是3位），用来区分国家或经济区域制定厂商码的编码权利。</li>
+<li>厂商码：厂商码是由数制码标示的编码管理局为每个厂商分配的一个唯一的编码。一个公司的所有产品将使用相同的厂商码。</li>
+<li>产品码：产品码是厂商分配的唯一编码。</li>
+<li>校验位：校验位是一个附加的位，用来验证一个条码是否被正确的扫描。扫描可能产生不正确的数据，这可能是由于不一致的扫描速度、不完善的打印或一系列其他的问题造成的，因此，有必要验证条码的其余数据已经被正确的诠释。校验位是从条码中其余的数字位中计算得到的。通常，如果校验位和基于已经扫描得到的数据计算出来的校验位的值相同的话，就可以高度的信任条码已经被正确扫描。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/13/Java-Web生成EAN13条形码/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/08/python练手-删除文件夹下的pdf文件/" itemprop="url">
                   [python练手]删除文件夹下的pdf文件
                 </a>
@@ -1080,7 +1200,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1088,7 +1208,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1097,7 +1217,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

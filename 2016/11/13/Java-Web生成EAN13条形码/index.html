@@ -1,0 +1,666 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bonjour!" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="EAN13编码原理具体详见EAN13编码原理，这里简要概述一下：一个EAN-13条码被划分成了4个区域：1）数制2）厂商码3）商品码4）校验位。通常，第一个数制位被打印在条码的左边，第二个数制位被作为条码下方左手边的那组六位数的第一个字符打印，厂商码是条码下方左手边的后5位数，产品码是条码下方右手边的前五位数，校验位是条码下方右手边的最后一位。以下是典型的EAN-13的条码：
+
+数制：数制是由2位">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Web生成EAN13条形码">
+<meta property="og:url" content="http://yoursite.com/2016/11/13/Java-Web生成EAN13条形码/index.html">
+<meta property="og:site_name" content="Bonjour!">
+<meta property="og:description" content="EAN13编码原理具体详见EAN13编码原理，这里简要概述一下：一个EAN-13条码被划分成了4个区域：1）数制2）厂商码3）商品码4）校验位。通常，第一个数制位被打印在条码的左边，第二个数制位被作为条码下方左手边的那组六位数的第一个字符打印，厂商码是条码下方左手边的后5位数，产品码是条码下方右手边的前五位数，校验位是条码下方右手边的最后一位。以下是典型的EAN-13的条码：
+
+数制：数制是由2位">
+<meta property="og:image" content="http://of9x0sxb3.bkt.clouddn.com/blog/20161113/120007864.png">
+<meta property="og:image" content="http://of9x0sxb3.bkt.clouddn.com/blog/20161113/120601091.png">
+<meta property="og:updated_time" content="2016-11-13T04:11:39.391Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java Web生成EAN13条形码">
+<meta name="twitter:description" content="EAN13编码原理具体详见EAN13编码原理，这里简要概述一下：一个EAN-13条码被划分成了4个区域：1）数制2）厂商码3）商品码4）校验位。通常，第一个数制位被打印在条码的左边，第二个数制位被作为条码下方左手边的那组六位数的第一个字符打印，厂商码是条码下方左手边的后5位数，产品码是条码下方右手边的前五位数，校验位是条码下方右手边的最后一位。以下是典型的EAN-13的条码：
+
+数制：数制是由2位">
+<meta name="twitter:image" content="http://of9x0sxb3.bkt.clouddn.com/blog/20161113/120007864.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/13/Java-Web生成EAN13条形码/"/>
+
+
+  <title> Java Web生成EAN13条形码 | Bonjour! </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Bonjour!</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">正在输入...</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java Web生成EAN13条形码
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-13T11:10:35+08:00" content="2016-11-13">
+              2016-11-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv">阅读次数
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="EAN13编码原理"><a href="#EAN13编码原理" class="headerlink" title="EAN13编码原理"></a>EAN13编码原理</h4><p>具体详见<a href="http://blog.csdn.net/abcpanpeng/article/details/8130392" target="_blank" rel="external">EAN13编码原理</a>，这里简要概述一下：<br>一个EAN-13条码被划分成了4个区域：1）数制2）厂商码3）商品码4）校验位。通常，第一个数制位被打印在条码的左边，第二个数制位被作为条码下方左手边的那组六位数的第一个字符打印，厂商码是条码下方左手边的后5位数，产品码是条码下方右手边的前五位数，校验位是条码下方右手边的最后一位。<br>以下是典型的EAN-13的条码：<br><img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161113/120007864.png" alt="mark"></p>
+<ul>
+<li>数制：数制是由2位组成的（有些时候是3位），用来区分国家或经济区域制定厂商码的编码权利。</li>
+<li>厂商码：厂商码是由数制码标示的编码管理局为每个厂商分配的一个唯一的编码。一个公司的所有产品将使用相同的厂商码。</li>
+<li>产品码：产品码是厂商分配的唯一编码。</li>
+<li>校验位：校验位是一个附加的位，用来验证一个条码是否被正确的扫描。扫描可能产生不正确的数据，这可能是由于不一致的扫描速度、不完善的打印或一系列其他的问题造成的，因此，有必要验证条码的其余数据已经被正确的诠释。校验位是从条码中其余的数字位中计算得到的。通常，如果校验位和基于已经扫描得到的数据计算出来的校验位的值相同的话，就可以高度的信任条码已经被正确扫描。<a id="more"></a>
+</li>
+</ul>
+<p>计算校验位的步骤如下：</p>
+<ol>
+<li>将最右边一个数位作为“奇数”位，从右向左为每个字符指定奇数/偶数位。</li>
+<li>对所有奇数位上的数值求和，将结构乘以3。</li>
+<li>对所有偶数位上的数值求和。</li>
+<li>对第2步和第3步计算的结果求和。</li>
+<li>校验位的数字加上用第4步计算的总和数应该能够被10整除。</li>
+<li>如果第4步计算的总和数能够被10整除，校验位就是“0”（不是10）</li>
+</ol>
+<h4 id="JSP代码实现"><a href="#JSP代码实现" class="headerlink" title="JSP代码实现"></a>JSP代码实现</h4><p>生成EAN13条形码的库使用的是jbarcode。下载地址：<a href="https://sourceforge.net/projects/jbcode/" target="_blank" rel="external">jbarcode</a></p>
+<ul>
+<li>JBarcode是一个使用 了Java 2D API条形码图像创建工具，支持EAN13, EAN8, UPCA, UPCE, Code 3 of 9, Codabar, Code 11, Code 93, Code 128, MSI/Plessey, Interleaved 2 of 5, PostNet等）。<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line">&lt;%@ page language="java" contentType="text/html; charset=GB2312"</div><div class="line">    pageEncoding="GB2312"%&gt;</div><div class="line">&lt;%@ page import="java.awt.image.BufferedImage" %&gt;</div><div class="line">&lt;%@ page import="java.io.FileOutputStream" %&gt;</div><div class="line">&lt;%@ page import="java.io.File" %&gt;</div><div class="line">&lt;%@ page import="org.jbarcode.JBarcode" %&gt;</div><div class="line">&lt;%@ page import="org.jbarcode.util.ImageUtil" %&gt;</div><div class="line">&lt;%@ page import="org.jbarcode.encode.EAN13Encoder" %&gt;</div><div class="line">&lt;%@ page import="org.jbarcode.encode.InvalidAtributeException" %&gt;</div><div class="line">&lt;%@ page import="org.jbarcode.paint.EAN13TextPainter" %&gt;</div><div class="line">&lt;%@ page import="org.jbarcode.paint.WidthCodedPainter" %&gt;</div><div class="line"></div><div class="line">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">&lt;meta http-equiv="Content-Type" content="text/html; charset=GB2312"&gt;</div><div class="line">&lt;title&gt;EAN-13编码&lt;/title&gt;</div><div class="line">&lt;style&gt;</div><div class="line">td&#123;</div><div class="line">	background-color:#eeeeee</div><div class="line">	&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line"></div><div class="line">	&lt;table border="0" cellpadding="0" cellspacing="2" bgcolor="white" width="410" style="border-right: #000000 1px solid; border-top: #000000 1px solid; font-size: 12px; border-left: #000000 1px solid; border-bottom: #000000 1px solid" ID="Table1"&gt;</div><div class="line">		&lt;tr height="20"&gt;</div><div class="line">			&lt;td width="90"&gt;12位条码数字&lt;/td&gt;</div><div class="line">			&lt;td&gt;</div><div class="line">				&lt;form action="." method="post"&gt;</div><div class="line">				&lt;%</div><div class="line">				String serial = (String)request.getParameter("ipt_12");</div><div class="line">				if(serial == null)</div><div class="line">					serial = "123456789012";</div><div class="line">				String serial_ns = "";</div><div class="line">				String serial_mc = "";</div><div class="line">				String serial_mc_1 = "";</div><div class="line">				String serial_pc = "";</div><div class="line">				String serial_pc_1 = "";</div><div class="line">				String serial_cd = "";</div><div class="line">				String serial_cd_1 = "";</div><div class="line">				String jpg_ean = "";</div><div class="line">				%&gt;</div><div class="line">				&lt;input id="ipt_12" size="12" maxlength="12" value="&lt;%=serial %&gt;" name="ipt_12"&gt;&lt;input id="make" type="submit" value="生成条码" name="make"&gt;</div><div class="line">				&lt;a href="http://blog.csdn.net/FuWaer/archive/2007/09/03/1770317.aspx" target=_blank&gt;EAN-13编码规则&lt;/a&gt;</div><div class="line">				&lt;/form&gt;</div><div class="line">				&lt;% serial = (String)request.getParameter("ipt_12");</div><div class="line">					if(serial != null &amp;&amp; serial.length() == 12)&#123;</div><div class="line">						serial_ns = serial.substring(0,2);</div><div class="line">						serial_mc = serial.substring(2,7);</div><div class="line">						serial_mc_1 = "__" + serial.substring(2,7);</div><div class="line">						serial_pc = serial.substring(7,12);</div><div class="line">						serial_pc_1 = "_______" + serial.substring(7,12);</div><div class="line">						int a = 0;</div><div class="line">						int b = 0;</div><div class="line">						for(int i = 0; i &lt; 12; i++)&#123;</div><div class="line">							if(i%2 == 0)&#123;</div><div class="line">								char c = serial.charAt(i);</div><div class="line">								int x = c - '0';</div><div class="line">								a += x;</div><div class="line">							&#125;else&#123;</div><div class="line">								char d = serial.charAt(i);</div><div class="line">								int y = d - '0';</div><div class="line">								b += y*3;</div><div class="line">							&#125;</div><div class="line">						&#125;</div><div class="line">						int src = 10 - (a + b)%10;</div><div class="line">						serial_cd = src + "";</div><div class="line">						serial_cd_1 = "____________" + src;</div><div class="line">						</div><div class="line">						String path = application.getRealPath(request.getRequestURI());</div><div class="line">						String dir = new File(path).getParent();</div><div class="line">						String jpg_ean_filepath = dir + "\\EAN13.jpg";</div><div class="line">						File file = new File(jpg_ean_filepath);</div><div class="line">						if(file.exists())</div><div class="line">							file.delete();</div><div class="line">						JBarcode jbarcode = new JBarcode(EAN13Encoder.getInstance(), WidthCodedPainter.getInstance(), EAN13TextPainter.getInstance());</div><div class="line">						BufferedImage localBufferedImage = jbarcode.createBarcode(serial);</div><div class="line">						FileOutputStream localFileOutputStream = new FileOutputStream(jpg_ean_filepath);</div><div class="line">						ImageUtil.encodeAndWrite(localBufferedImage, "jpeg", localFileOutputStream, 96, 96); </div><div class="line">						localFileOutputStream.close();</div><div class="line">						jpg_ean = "&lt;img src=\"" + "EAN13.jpg" + "\" height=90%; width=100%;&gt;";</div><div class="line">					&#125;else if(serial != null &amp;&amp; serial.length() != 12)&#123;</div><div class="line">						out.println("&lt;script&gt;alert('Please enter 12 digits!')&lt;/script&gt;");</div><div class="line">					&#125;</div><div class="line">				%&gt;</div><div class="line">			&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr height="20"&gt;</div><div class="line">			&lt;td width="90"&gt;13位EAN-13条码&lt;/td&gt;</div><div class="line">			&lt;td id="td13" style="font-weight: bold; font-size: 14px; letter-spacing: 5px"&gt;&lt;font color=red&gt;&lt;%=serial_ns%&gt;&lt;/font&gt;&lt;font color=blue&gt;&lt;%=serial_mc%&gt;&lt;/font&gt;&lt;font color=brown&gt;&lt;%=serial_pc%&gt;&lt;/font&gt;&lt;font color=green&gt;&lt;%=serial_cd%&gt;&lt;/font&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr height="20"&gt;</div><div class="line">			&lt;td width="90"&gt;数制码&lt;/td&gt;</div><div class="line">			&lt;td id="td13_ns" style="font-weight: bold; font-size: 14px; letter-spacing: 5px; color:red"&gt;&lt;%=serial_ns%&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr height="20"&gt;</div><div class="line">			&lt;td width="90"&gt;厂商码&lt;/td&gt;</div><div class="line">			&lt;td id="td13_mc" style="font-weight: bold; font-size: 14px; letter-spacing: 5px; color:blue"&gt;&lt;%=serial_mc_1%&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr height="20"&gt;</div><div class="line">			&lt;td width="90"&gt;产品码&lt;/td&gt;</div><div class="line">			&lt;td id="td13_pc" style="font-weight: bold; font-size: 14px; letter-spacing: 5px; color:brown"&gt;&lt;%=serial_pc_1%&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr height="20"&gt;</div><div class="line">			&lt;td width="90"&gt;校验位&lt;/td&gt;</div><div class="line">			&lt;td id="td13_cd" style="font-weight: bold; font-size: 14px; letter-spacing: 5px; color:green"&gt;&lt;%=serial_cd_1%&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">		&lt;tr height="140"&gt;</div><div class="line">			&lt;td width="90"&gt;EAN-13图像&lt;/td&gt;</div><div class="line">			&lt;td id="td13_ean" align=center valign=middle style="background-color:white"&gt;&lt;%=jpg_ean %&gt;&lt;/td&gt;</div><div class="line">		&lt;/tr&gt;</div><div class="line">	&lt;/table&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>项目部署在Tomcat7.0上。运行之后如下图：<br><img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161113/120601091.png" alt="mark"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/08/python练手-删除文件夹下的pdf文件/" rel="next" title="[python练手]删除文件夹下的pdf文件">
+                <i class="fa fa-chevron-left"></i> [python练手]删除文件夹下的pdf文件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="BonjourChen" />
+          <p class="site-author-name" itemprop="name">BonjourChen</p>
+          <p class="site-description motion-element" itemprop="description">Stay hungry.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/BonjourChen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/webinchen" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#EAN13编码原理"><span class="nav-number">1.</span> <span class="nav-text">EAN13编码原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JSP代码实现"><span class="nav-number">2.</span> <span class="nav-text">JSP代码实现</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BonjourChen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+    <span class="site-pv">本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
