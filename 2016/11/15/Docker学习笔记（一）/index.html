@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CTF,MISC," />
+  <meta name="keywords" content="Docker," />
 
 
 
@@ -86,18 +86,19 @@
 
 
 
-<meta name="description" content="easy wireshark查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：nctf{wireshark_is_easy}">
+<meta name="description" content="什么是Docker百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议">
 <meta property="og:type" content="article">
-<meta property="og:title" content="南京邮电大学网络攻防训练平台题解——MISC">
-<meta property="og:url" content="http://yoursite.com/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/index.html">
+<meta property="og:title" content="Docker学习笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/Docker学习笔记（一）/index.html">
 <meta property="og:site_name" content="Bonjour!">
-<meta property="og:description" content="easy wireshark查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：nctf{wireshark_is_easy}">
-<meta property="og:image" content="http://oexmgtl4i.bkt.clouddn.com/github.io/01.png">
-<meta property="og:updated_time" content="2016-10-12T15:14:32.843Z">
+<meta property="og:description" content="什么是Docker百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议">
+<meta property="og:image" content="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094908295.png">
+<meta property="og:image" content="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094958563.png">
+<meta property="og:updated_time" content="2016-11-15T07:37:47.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="南京邮电大学网络攻防训练平台题解——MISC">
-<meta name="twitter:description" content="easy wireshark查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：nctf{wireshark_is_easy}">
-<meta name="twitter:image" content="http://oexmgtl4i.bkt.clouddn.com/github.io/01.png">
+<meta name="twitter:title" content="Docker学习笔记（一）">
+<meta name="twitter:description" content="什么是Docker百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议">
+<meta name="twitter:image" content="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094908295.png">
 
 
 
@@ -118,10 +119,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/10/12/南京邮电大学网络攻防训练平台题解——MISC/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/15/Docker学习笔记（一）/"/>
 
 
-  <title> 南京邮电大学网络攻防训练平台题解——MISC | Bonjour! </title>
+  <title> Docker学习笔记（一） | Bonjour! </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -243,7 +244,7 @@
             
             
               
-                南京邮电大学网络攻防训练平台题解——MISC
+                Docker学习笔记（一）
               
             
           </h1>
@@ -255,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-12T19:31:04+08:00" content="2016-10-12">
-              2016-10-12
+            <time itemprop="dateCreated" datetime="2016-11-15T15:34:04+08:00" content="2016-11-15">
+              2016-11-15
             </time>
           </span>
 
@@ -269,8 +270,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
                   </a>
                 </span>
 
@@ -307,8 +308,25 @@
       
 
       
-        <h3 id="easy-wireshark"><a href="#easy-wireshark" class="headerlink" title="easy wireshark"></a>easy wireshark</h3><p>查看http流量，可以发现有个flag.php的请求，追踪TCP流可以获得flag：<code>nctf{wireshark_is_easy}</code><br><a id="more"></a><br><img src="http://oexmgtl4i.bkt.clouddn.com/github.io/01.png" alt="Alt text"></p>
-<h3 id="wireshark-2"><a href="#wireshark-2" class="headerlink" title="wireshark 2"></a>wireshark 2</h3><p>分析http流的时候很容易发现有个secret.txt，打开之后可以看到内容：the password for zip file is : ZipYourMouth<br>那么接下来就是找zip了。然后可以发现上面有个flag.zip，尝试提取出来。发现提取出来是坏的，用winrar无法修复。<br>折腾了一阵然后就找writeup了。原来flag真的不在这里，坑。<br>在pcap文件中直接查找zip文件头Hex：504B0304，可以发现在1139行还有一个zip。里面有个flag.txt。<br>提取出来之后，用winrar修复，根据上面找到的压缩包密码就可以解压了。打开就是flag：Flag-qscet5234diQ。根据题目要求转换成小写就O了。最后提交flag：<code>flag-qscet5234diq</code></p>
+        <h4 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h4><p>百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议开源。</p>
+<h4 id="Linux容器技术"><a href="#Linux容器技术" class="headerlink" title="Linux容器技术"></a>Linux容器技术</h4><p>Docker引擎的基础是Linux容器（LXC）技术。Docker提供了各种容器管理工具（如开发、版本、移植等）让用户无需关注底层的操作，可以简单明了地管理和使用容器。</p>
+<h4 id="Docker在开发和运维中的优势"><a href="#Docker在开发和运维中的优势" class="headerlink" title="Docker在开发和运维中的优势"></a>Docker在开发和运维中的优势</h4><ul>
+<li>更快速的交付和部署</li>
+<li>更高效的资源利用（内核级虚拟化，性能更高）</li>
+<li>更轻松的迁移和扩展（几乎可以在任意的平台上运行）</li>
+<li>更简单的更新管理（Dockerfile）</li>
+</ul>
+<h4 id="Docker与虚拟机的比较"><a href="#Docker与虚拟机的比较" class="headerlink" title="Docker与虚拟机的比较"></a>Docker与虚拟机的比较</h4><p><img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094908295.png" alt="mark"><br><img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094958563.png" alt="mark"></p>
+<h4 id="Docker核心概念"><a href="#Docker核心概念" class="headerlink" title="Docker核心概念"></a>Docker核心概念</h4><ul>
+<li>Docker镜像<br>Docker镜像（Image）类似于虚拟机镜像，可以理解为一个面向Docker引擎的只读模板，包含了文件系统。</li>
+<li>Docker容器<br>容器（Container）类似于一个轻量级沙箱，Docker利用容器来运行和隔离应用。容器是从镜像创建的应用运行实例，可以启动，开始，停止，删除。</li>
+<li>Docker仓库<br>Docker仓库（Repository）类似代码仓库，是Docker集中存放镜像文件的场所。分为公开仓库和私有仓库。<a id="more"></a>
+</li>
+</ul>
+<h4 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h4><p>Docker只能在64位的系统上安装，本人安装环境的CentOS 7.2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[wb@localhost /]$ cat /etc/redhat-release </div><div class="line">CentOS Linux release 7.2.1511 (Core)</div></pre></td></tr></table></figure></p>
+<p>安装命令：<code>sudo yum install docker</code><br>安装之后查看docker版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[wb@localhost /]$ docker version</div><div class="line">Client:</div><div class="line"> Version:         1.10.3</div><div class="line"> API version:     1.22</div><div class="line"> Package version: docker-common-1.10.3-46.el7.centos.14.x86_64</div><div class="line"> Go version:      go1.6.3</div><div class="line"> Git commit:      cb079f6-unsupported</div><div class="line"> Built:           Fri Sep 16 13:24:25 2016</div><div class="line"> OS/Arch:         linux/amd64</div><div class="line">Cannot connect to the Docker daemon. Is the docker daemon running on this host?</div></pre></td></tr></table></figure></p>
+<p> 这里出现了一句警告：<code>Cannot connect to the Docker daemon. Is the docker daemon running on this host?</code>使用sudo也不行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[wb@localhost /]$ sudo docker search centos</div><div class="line">[sudo] password for wb: </div><div class="line">Cannot connect to the Docker daemon. Is the docker daemon running on this host?</div></pre></td></tr></table></figure></p>
+<p>后来重启了一下docker服务，然后就可以了。使用sudo不会出现这个警告了。</p>
 
       
     </div>
@@ -331,9 +349,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CTF/" rel="tag">#CTF</a>
-          
-            <a href="/tags/MISC/" rel="tag">#MISC</a>
+            <a href="/tags/Docker/" rel="tag">#Docker</a>
           
         </div>
       
@@ -342,17 +358,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/12/Flask-uwsgi-Nginx部署应用/" rel="next" title="Flask+uwsgi+Nginx部署应用">
-                <i class="fa fa-chevron-left"></i> Flask+uwsgi+Nginx部署应用
+              <a href="/2016/11/13/Java-Web生成EAN13条形码/" rel="next" title="Java Web生成EAN13条形码">
+                <i class="fa fa-chevron-left"></i> Java Web生成EAN13条形码
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/12/南京邮电大学网络攻防训练平台题解——隐写术/" rel="prev" title="南京邮电大学网络攻防训练平台题解——隐写术">
-                南京邮电大学网络攻防训练平台题解——隐写术 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -493,7 +505,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#easy-wireshark"><span class="nav-number">1.</span> <span class="nav-text">easy wireshark</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wireshark-2"><span class="nav-number">2.</span> <span class="nav-text">wireshark 2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Docker"><span class="nav-number">1.</span> <span class="nav-text">什么是Docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux容器技术"><span class="nav-number">2.</span> <span class="nav-text">Linux容器技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker在开发和运维中的优势"><span class="nav-number">3.</span> <span class="nav-text">Docker在开发和运维中的优势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker与虚拟机的比较"><span class="nav-number">4.</span> <span class="nav-text">Docker与虚拟机的比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker核心概念"><span class="nav-number">5.</span> <span class="nav-text">Docker核心概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker安装"><span class="nav-number">6.</span> <span class="nav-text">Docker安装</span></a></li></ol></div>
             
           </div>
         </section>

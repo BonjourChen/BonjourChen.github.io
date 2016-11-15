@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-14T07:02:23.681Z</updated>
+  <updated>2016-11-15T07:37:47.185Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Docker学习笔记（一）</title>
+    <link href="http://yoursite.com/2016/11/15/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://yoursite.com/2016/11/15/Docker学习笔记（一）/</id>
+    <published>2016-11-15T07:34:04.000Z</published>
+    <updated>2016-11-15T07:37:47.185Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h4><p>百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议开源。</p>
+<h4 id="Linux容器技术"><a href="#Linux容器技术" class="headerlink" title="Linux容器技术"></a>Linux容器技术</h4><p>Docker引擎的基础是Linux容器（LXC）技术。Docker提供了各种容器管理工具（如开发、版本、移植等）让用户无需关注底层的操作，可以简单明了地管理和使用容器。</p>
+<h4 id="Docker在开发和运维中的优势"><a href="#Docker在开发和运维中的优势" class="headerlink" title="Docker在开发和运维中的优势"></a>Docker在开发和运维中的优势</h4><ul>
+<li>更快速的交付和部署</li>
+<li>更高效的资源利用（内核级虚拟化，性能更高）</li>
+<li>更轻松的迁移和扩展（几乎可以在任意的平台上运行）</li>
+<li>更简单的更新管理（Dockerfile）</li>
+</ul>
+<h4 id="Docker与虚拟机的比较"><a href="#Docker与虚拟机的比较" class="headerlink" title="Docker与虚拟机的比较"></a>Docker与虚拟机的比较</h4><p><img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094908295.png" alt="mark"><br><img src="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094958563.png" alt="mark"></p>
+<h4 id="Docker核心概念"><a href="#Docker核心概念" class="headerlink" title="Docker核心概念"></a>Docker核心概念</h4><ul>
+<li>Docker镜像<br>Docker镜像（Image）类似于虚拟机镜像，可以理解为一个面向Docker引擎的只读模板，包含了文件系统。</li>
+<li>Docker容器<br>容器（Container）类似于一个轻量级沙箱，Docker利用容器来运行和隔离应用。容器是从镜像创建的应用运行实例，可以启动，开始，停止，删除。</li>
+<li>Docker仓库<br>Docker仓库（Repository）类似代码仓库，是Docker集中存放镜像文件的场所。分为公开仓库和私有仓库。<a id="more"></a>
+</li>
+</ul>
+<h4 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h4><p>Docker只能在64位的系统上安装，本人安装环境的CentOS 7.2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[wb@localhost /]$ cat /etc/redhat-release </div><div class="line">CentOS Linux release 7.2.1511 (Core)</div></pre></td></tr></table></figure></p>
+<p>安装命令：<code>sudo yum install docker</code><br>安装之后查看docker版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[wb@localhost /]$ docker version</div><div class="line">Client:</div><div class="line"> Version:         1.10.3</div><div class="line"> API version:     1.22</div><div class="line"> Package version: docker-common-1.10.3-46.el7.centos.14.x86_64</div><div class="line"> Go version:      go1.6.3</div><div class="line"> Git commit:      cb079f6-unsupported</div><div class="line"> Built:           Fri Sep 16 13:24:25 2016</div><div class="line"> OS/Arch:         linux/amd64</div><div class="line">Cannot connect to the Docker daemon. Is the docker daemon running on this host?</div></pre></td></tr></table></figure></p>
+<p> 这里出现了一句警告：<code>Cannot connect to the Docker daemon. Is the docker daemon running on this host?</code>使用sudo也不行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[wb@localhost /]$ sudo docker search centos</div><div class="line">[sudo] password for wb: </div><div class="line">Cannot connect to the Docker daemon. Is the docker daemon running on this host?</div></pre></td></tr></table></figure></p>
+<p>后来重启了一下docker服务，然后就可以了。使用sudo不会出现这个警告了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;什么是Docker&quot;&gt;&lt;a href=&quot;#什么是Docker&quot; class=&quot;headerlink&quot; title=&quot;什么是Docker&quot;&gt;&lt;/a&gt;什么是Docker&lt;/h4&gt;&lt;p&gt;百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议开源。&lt;/p&gt;
+&lt;h4 id=&quot;Linux容器技术&quot;&gt;&lt;a href=&quot;#Linux容器技术&quot; class=&quot;headerlink&quot; title=&quot;Linux容器技术&quot;&gt;&lt;/a&gt;Linux容器技术&lt;/h4&gt;&lt;p&gt;Docker引擎的基础是Linux容器（LXC）技术。Docker提供了各种容器管理工具（如开发、版本、移植等）让用户无需关注底层的操作，可以简单明了地管理和使用容器。&lt;/p&gt;
+&lt;h4 id=&quot;Docker在开发和运维中的优势&quot;&gt;&lt;a href=&quot;#Docker在开发和运维中的优势&quot; class=&quot;headerlink&quot; title=&quot;Docker在开发和运维中的优势&quot;&gt;&lt;/a&gt;Docker在开发和运维中的优势&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;更快速的交付和部署&lt;/li&gt;
+&lt;li&gt;更高效的资源利用（内核级虚拟化，性能更高）&lt;/li&gt;
+&lt;li&gt;更轻松的迁移和扩展（几乎可以在任意的平台上运行）&lt;/li&gt;
+&lt;li&gt;更简单的更新管理（Dockerfile）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Docker与虚拟机的比较&quot;&gt;&lt;a href=&quot;#Docker与虚拟机的比较&quot; class=&quot;headerlink&quot; title=&quot;Docker与虚拟机的比较&quot;&gt;&lt;/a&gt;Docker与虚拟机的比较&lt;/h4&gt;&lt;p&gt;&lt;img src=&quot;http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094908295.png&quot; alt=&quot;mark&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094958563.png&quot; alt=&quot;mark&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;Docker核心概念&quot;&gt;&lt;a href=&quot;#Docker核心概念&quot; class=&quot;headerlink&quot; title=&quot;Docker核心概念&quot;&gt;&lt;/a&gt;Docker核心概念&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Docker镜像&lt;br&gt;Docker镜像（Image）类似于虚拟机镜像，可以理解为一个面向Docker引擎的只读模板，包含了文件系统。&lt;/li&gt;
+&lt;li&gt;Docker容器&lt;br&gt;容器（Container）类似于一个轻量级沙箱，Docker利用容器来运行和隔离应用。容器是从镜像创建的应用运行实例，可以启动，开始，停止，删除。&lt;/li&gt;
+&lt;li&gt;Docker仓库&lt;br&gt;Docker仓库（Repository）类似代码仓库，是Docker集中存放镜像文件的场所。分为公开仓库和私有仓库。
+    
+    </summary>
+    
+      <category term="Docker" scheme="http://yoursite.com/categories/Docker/"/>
+    
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Java Web生成EAN13条形码</title>
