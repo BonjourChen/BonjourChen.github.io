@@ -243,6 +243,131 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/16/Docker学习笔记（二）：镜像的基本操作/" itemprop="url">
+                  Docker学习笔记（二）：镜像的基本操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-16T11:39:35+08:00" content="2016-11-16">
+              2016-11-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index">
+                    <span itemprop="name">Docker</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="搜索镜像"><a href="#搜索镜像" class="headerlink" title="搜索镜像"></a>搜索镜像</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[wb@localhost ~]$ docker search ubuntu</div><div class="line">Cannot connect to the Docker daemon. Is the docker daemon running on this host?</div><div class="line">[wb@localhost ~]$ sudo docker search ubuntu</div><div class="line">INDEX       NAME                                 DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED</div><div class="line">docker.io   docker.io/ubuntu                     Ubuntu is a Debian-based Linux operating s...   5037      [OK]       </div><div class="line">docker.io   docker.io/ubuntu-upstart             Upstart is an event-based replacement for ...   68        [OK]       </div><div class="line">docker.io   docker.io/rastasheep/ubuntu-sshd     Dockerized SSH service, built on top of of...   49                   [OK]</div><div class="line">docker.io   docker.io/consol/ubuntu-xfce-vnc     Ubuntu container with &quot;headless&quot; VNC sessi...   29                   [OK]</div><div class="line">docker.io   docker.io/torusware/speedus-ubuntu   Always updated official Ubuntu docker imag...   27                   [OK]</div><div class="line">docker.io   docker.io/ubuntu-debootstrap         debootstrap --variant=minbase --components...   27        [OK]       </div><div class="line">docker.io   docker.io/ioft/armhf-ubuntu          [ABR] Ubuntu Docker images for the ARMv7(a...   19                   [OK]</div><div class="line">``` </div><div class="line">可以加上`-s`参数查看星级以上的镜像。</div><div class="line">&lt;!-- more --&gt;</div><div class="line">#### 利用pull命令获取镜像</div></pre></td></tr></table></figure>
+<p>[wb@localhost ~]$ sudo docker pull ubuntu:14.04<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">如果不加上tag，默认是从Docker Hub下载latest的镜像。如果要下载的是Ubuntu14.4，则使用命令：`sudo docker pull ubuntu:14.04`。如果要更换仓库，可以加上仓库名。也可以指定其他的注册服务器下载。</div><div class="line">#### 查看当前系统中的镜像信息</div></pre></td></tr></table></figure></p>
+<p>[wb@localhost ~]$ sudo docker images<br>[sudo] password for wb:<br>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE<br>docker.io/centos    latest              0584b3d2cf6d        12 days ago         196.5 MB<br>docker.io/ubuntu    latest              f753707788c5        4 weeks ago         127.1 MB<br>docker.io/ubuntu    14.04               1e0c3dd64ccd        4 weeks ago         187.9 MB<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">可以看到包含了一下的信息：</div><div class="line">- 镜像来自的仓库</div><div class="line">- 镜像的tag</div><div class="line">- 镜像的ID</div><div class="line">- 镜像创建的时间</div><div class="line">- 镜像的大小</div><div class="line"></div><div class="line">#### 为镜像添加新的标签</div><div class="line">可以使用`docker tag`命令为本地镜像添加新的标签。</div></pre></td></tr></table></figure></p>
+<p>[wb@localhost ~]$ sudo docker tag docker.io/ubuntu:14.04 ubuntu:latest_1<br>[wb@localhost ~]$ sudo docker images<br>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE<br>docker.io/centos    latest              0584b3d2cf6d        12 days ago         196.5 MB<br>docker.io/ubuntu    latest              f753707788c5        4 weeks ago         127.1 MB<br>docker.io/ubuntu    14.04               1e0c3dd64ccd        4 weeks ago         187.9 MB<br>ubuntu              latest_1            1e0c3dd64ccd        4 weeks ago         187.9 MB<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">虽然创建了新的tag，但是Image ID是一样的，说明指向的是同一个镜像。</div><div class="line">#### 查看镜像的详细信息</div><div class="line">可以使用`docker inspect`查看镜像详细信息</div></pre></td></tr></table></figure></p>
+<p>[wb@localhost ~]$ sudo docker inspect 1e0c<br>[<br>    {<br>        “Id”: “sha256:1e0c3dd64ccdb5d750d8d1dee705a64e40f1c49fd8859ae488853748c91cad43”,<br>        “RepoTags”: [<br>            “docker.io/ubuntu:14.04”,<br>            “ubuntu:latest_1”<br>        ],<br>        “RepoDigests”: [],<br>        “Parent”: “”,<br>        “Comment”: “”,<br>        “Created”: “2016-10-13T21:13:06.201891855Z”,<br>        “Container”: “f0345d441216cc655ebbd58fd942ff6a7bcb38c73fe4320bc8b6a5da376aea4d”,<br>        “ContainerConfig”: {<br>            “Hostname”: “afef2623e56c”,<br>            “Domainname”: “”,<br>            “User”: “”,<br>            “AttachStdin”: false,<br>            “AttachStdout”: false,<br>            “AttachStderr”: false,<br>            “Tty”: false,<br>            “OpenStdin”: false,<br>            “StdinOnce”: false,<br>            “Env”: [<br>                “PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin”<br>            ],<br>            “Cmd”: [<br>                “/bin/sh”,<br>                “-c”,<br>                “#(nop) “,<br>                “CMD [\”/bin/bash\”]”<br>            ],<br>            “ArgsEscaped”: true,<br>            “Image”: “sha256:ab1dd3221ab66f16639512a49875dd9b3c6a253eca407b04217f44b489a1c1d4”,<br>            “Volumes”: null,<br>            “WorkingDir”: “”,<br>            “Entrypoint”: null,<br>            “OnBuild”: null,<br>            “Labels”: {}<br>        },<br>        “DockerVersion”: “1.12.1”,<br>        “Author”: “”,<br>        “Config”: {<br>            “Hostname”: “afef2623e56c”,<br>            “Domainname”: “”,<br>            “User”: “”,<br>            “AttachStdin”: false,<br>            “AttachStdout”: false,<br>            “AttachStderr”: false,<br>            “Tty”: false,<br>            “OpenStdin”: false,<br>            “StdinOnce”: false,<br>            “Env”: [<br>                “PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin”<br>            ],<br>            “Cmd”: [<br>                “/bin/bash”<br>            ],<br>            “ArgsEscaped”: true,<br>            “Image”: “sha256:ab1dd3221ab66f16639512a49875dd9b3c6a253eca407b04217f44b489a1c1d4”,<br>            “Volumes”: null,<br>            “WorkingDir”: “”,<br>            “Entrypoint”: null,<br>            “OnBuild”: null,<br>            “Labels”: {}<br>        },<br>        “Architecture”: “amd64”,<br>        “Os”: “linux”,<br>        “Size”: 187920051,<br>        “VirtualSize”: 187920051,<br>        “GraphDriver”: {<br>            “Name”: “devicemapper”,<br>            “Data”: {<br>                “DeviceId”: “9”,<br>                “DeviceName”: “docker-253:0-201516507-c9bf8de05102f9b96a234d72a52f2f02e269412a0726403c13ef4097eb1b693f”,<br>                “DeviceSize”: “10737418240”<br>            }<br>        }<br>    }<br>]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">返回的是json格式的数据，可以使用-f参数来显示其中的具体内容：</div></pre></td></tr></table></figure></p>
+<p>[wb@localhost ~]$ sudo docker inspect -f .GraphDriver.Name 1e0c<br>devicemapper<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">使用镜像ID的时候并不需要ID的全部，只需要一部分能够标识这个镜像就可以了。</div><div class="line">#### 删除镜像</div><div class="line">删除镜像使用`docker rmi 标签/ID`。</div><div class="line">当使用镜像tag删除镜像的时候，如果一个镜像有多个tag，那么只删除镜像的一个tag。当镜像只剩下一个tag的时候，会删除整个镜像。</div></pre></td></tr></table></figure></p>
+<p>[wb@localhost ~]$ sudo docker rmi ubuntu:latest_1<br>Untagged: ubuntu:latest_1<br>[wb@localhost ~]$ sudo docker images<br>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE<br>docker.io/centos    latest              0584b3d2cf6d        12 days ago         196.5 MB<br>docker.io/ubuntu    latest              f753707788c5        4 weeks ago         127.1 MB<br>docker.io/ubuntu    14.04               1e0c3dd64ccd        4 weeks ago         187.9 MB</p>
+<p>[wb@localhost ~]$ sudo docker rmi docker.io/ubuntu:14.04<br>Untagged: docker.io/ubuntu:14.04<br>Deleted: sha256:1e0c3dd64ccdb5d750d8d1dee705a64e40f1c49fd8859ae488853748c91cad43<br>Deleted: sha256:91619704ae6b5c28333e3a3a56f8ed2c9913be0715bdaec8d5ec9cf146ed48ec<br>Deleted: sha256:64d2ec335addc02267a5ab8d2d461c796605edef0c93b5e6cc534b25d62a3175<br>Deleted: sha256:0e3b3a9aca0d43a428166e01ae1856f897faf3b7a9a8cc487aaddf605e79b3ab<br>Deleted: sha256:011cbcce260f4a6f34e07083c99f68fc69e8a77700711e448f56479da0aa608c<br>Deleted: sha256:a85f35566a268e6f4411c5157ffcffe4f5918b068b04d79fdd80003901ca39da<br>[wb@localhost ~]$ sudo docker images<br>REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE<br>docker.io/centos    latest              0584b3d2cf6d        12 days ago         196.5 MB<br>docker.io/ubuntu    latest              f753707788c5        4 weeks ago         127.1 MB<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">如果使用镜像ID删除镜像，则会删除镜像的所有tag，然后删除镜像。但是当镜像里面存在正在运行的容器时，无法删除镜像。此时应当使用rm先删除容器，之后在删除镜像。</div><div class="line">#### 创建镜像</div><div class="line">创建镜像的方法有三种：</div><div class="line">- 基于已有镜像的容器创建</div><div class="line">- 基于本地模板导入</div><div class="line">- 基于Dockerfile创建</div><div class="line"></div><div class="line">**基于已有镜像的容器创建。**主要使用命令：`docker commit [options] container [repository[:tag]]`，主要参数包括：</div><div class="line">- -a --author=&quot;&quot; 作者信息</div><div class="line">- -m --message=&quot;&quot; 提交消息</div><div class="line">- -p --pause=true 提交时暂停容器运行</div></pre></td></tr></table></figure></p>
+<p>在镜像内创建一个新文件:<br>[wb@localhost ~]$ sudo docker run -ti ubuntu:14.04 /bin/bash<br>root@dc46bcb6858a:/# touch test<br>root@dc46bcb6858a:/# ls<br>bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  test  tmp  usr  var<br>此时容器ID为dc46bcb6858a，保存为新镜像：<br>[wb@localhost ~]$ sudo docker commit -m “Add a new file” dc46bcb6858a test<br>sha256:9790710e4c85127f960d32f64b1fb9e76944f1922df70de27b18bb61f472c30e<br>[wb@localhost ~]$ sudo docker images<br>REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE<br>test                 latest              9790710e4c85        13 seconds ago      187.9 MB<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">**基于本地模板导入。**可以将一个操作系统模板文件导入镜像。</div><div class="line">openVZ系统模板下载地址：[openVZ](https://openvz.org/Download/template/precreated)</div><div class="line">![mark](http://of9x0sxb3.bkt.clouddn.com/blog/20161116/092908193.png)</div><div class="line">下载了之后使用命令导入：</div></pre></td></tr></table></figure></p>
+<p>[wb@localhost ~]$ sudo cat ubuntu-12.04-x86-minimal.tar.gz | sudo docker import - ubuntu:12.04<br>sha256:574af84d86e9dc97ffa47875f31173d0095c5ac917ea4d35441c60bf2cc31baf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">查看本地镜像已经存在：</div></pre></td></tr></table></figure></p>
+<p>[wb@localhost ~]$ sudo docker images<br>REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE<br>ubuntu               12.04               574af84d86e9        15 seconds ago      145.8 MB<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">**基于Dockerfile创建。**后文详细介绍。</div><div class="line">#### 镜像的导入和导出</div><div class="line">**镜像的导出：**</div></pre></td></tr></table></figure></p>
+<p>[wb@localhost ~]$ sudo docker save  -o ubuntu_1404.tar ubuntu:14.04<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">**镜像的载入：**</div></pre></td></tr></table></figure></p>
+<p>[wb@localhost ~]$ sudo docker load –input ubuntu_1404.tar<br>或者<br>[wb@localhost ~]$ sudo docker load &lt; ubuntu_1404.tar<br>```</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/15/Docker学习笔记（一）/" itemprop="url">
                   Docker学习笔记（一）：简介&安装
                 </a>
@@ -1335,7 +1460,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
