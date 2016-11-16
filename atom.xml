@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-16T03:32:35.387Z</updated>
+  <updated>2016-11-16T03:34:04.074Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Docker学习笔记（一）</title>
+    <title>Docker学习笔记（一）：安装</title>
     <link href="http://yoursite.com/2016/11/15/Docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://yoursite.com/2016/11/15/Docker学习笔记（一）/</id>
     <published>2016-11-15T07:34:04.000Z</published>
-    <updated>2016-11-16T03:32:35.387Z</updated>
+    <updated>2016-11-16T03:34:04.074Z</updated>
     
     <content type="html"><![CDATA[<h4 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h4><p>百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议开源。</p>
 <h4 id="Linux容器技术"><a href="#Linux容器技术" class="headerlink" title="Linux容器技术"></a>Linux容器技术</h4><p>Docker引擎的基础是Linux容器（LXC）技术。Docker提供了各种容器管理工具（如开发、版本、移植等）让用户无需关注底层的操作，可以简单明了地管理和使用容器。</p>
