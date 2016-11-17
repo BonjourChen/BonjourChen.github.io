@@ -86,18 +86,21 @@
 
 
 
-<meta name="description" content="什么是Docker百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议">
+<meta name="description" content="什么是DockerDocker是Docker.Inc公司开源的一个基于轻量级虚拟化技术的容器引擎项目,整个项目基于Go语言开发，并遵从Apache 2.0协议。通过分层镜像标准化和内核虚拟化技术，Docker使得应用开发者和运维工程师可以以统一的方式跨平台发布应用，并且以几乎没有额外开销的情况下提供资源隔离的应用运行环境。
+Linux容器技术Docker引擎的基础是Linux容器（LXC）技术。D">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker学习笔记（一）：简介&安装">
 <meta property="og:url" content="http://yoursite.com/2016/11/15/Docker学习笔记（一）/index.html">
 <meta property="og:site_name" content="Bonjour!">
-<meta property="og:description" content="什么是Docker百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议">
+<meta property="og:description" content="什么是DockerDocker是Docker.Inc公司开源的一个基于轻量级虚拟化技术的容器引擎项目,整个项目基于Go语言开发，并遵从Apache 2.0协议。通过分层镜像标准化和内核虚拟化技术，Docker使得应用开发者和运维工程师可以以统一的方式跨平台发布应用，并且以几乎没有额外开销的情况下提供资源隔离的应用运行环境。
+Linux容器技术Docker引擎的基础是Linux容器（LXC）技术。D">
 <meta property="og:image" content="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094908295.png">
 <meta property="og:image" content="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094958563.png">
-<meta property="og:updated_time" content="2016-11-16T03:36:35.129Z">
+<meta property="og:updated_time" content="2016-11-17T03:28:02.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker学习笔记（一）：简介&安装">
-<meta name="twitter:description" content="什么是Docker百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议">
+<meta name="twitter:description" content="什么是DockerDocker是Docker.Inc公司开源的一个基于轻量级虚拟化技术的容器引擎项目,整个项目基于Go语言开发，并遵从Apache 2.0协议。通过分层镜像标准化和内核虚拟化技术，Docker使得应用开发者和运维工程师可以以统一的方式跨平台发布应用，并且以几乎没有额外开销的情况下提供资源隔离的应用运行环境。
+Linux容器技术Docker引擎的基础是Linux容器（LXC）技术。D">
 <meta name="twitter:image" content="http://of9x0sxb3.bkt.clouddn.com/blog/20161115/094908295.png">
 
 
@@ -308,7 +311,7 @@
       
 
       
-        <h4 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h4><p>百度百科：Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议开源。</p>
+        <h4 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h4><p>Docker是Docker.Inc公司开源的一个基于轻量级虚拟化技术的容器引擎项目,整个项目基于Go语言开发，并遵从Apache 2.0协议。通过分层镜像标准化和内核虚拟化技术，Docker使得应用开发者和运维工程师可以以统一的方式跨平台发布应用，并且以几乎没有额外开销的情况下提供资源隔离的应用运行环境。</p>
 <h4 id="Linux容器技术"><a href="#Linux容器技术" class="headerlink" title="Linux容器技术"></a>Linux容器技术</h4><p>Docker引擎的基础是Linux容器（LXC）技术。Docker提供了各种容器管理工具（如开发、版本、移植等）让用户无需关注底层的操作，可以简单明了地管理和使用容器。</p>
 <h4 id="Docker在开发和运维中的优势"><a href="#Docker在开发和运维中的优势" class="headerlink" title="Docker在开发和运维中的优势"></a>Docker在开发和运维中的优势</h4><ul>
 <li>更快速的交付和部署</li>
